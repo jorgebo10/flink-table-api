@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="stateful-table-api" />
+        <module name="flink-table-api" />
       </profile>
     </annotationProcessing>
   </component>

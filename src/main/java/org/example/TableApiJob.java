@@ -18,8 +18,11 @@
 
 package org.example;
 
+import org.apache.flink.configuration.Configuration;
 import org.apache.flink.connector.datagen.table.DataGenConnectorOptions;
+import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.table.api.*;
+import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
 
 import java.io.File;
 
@@ -28,10 +31,10 @@ import static org.apache.flink.table.api.Expressions.$;
 public class TableApiJob {
 
     public static void main(String[] args) {
-
-        // We use streaming mode because the data is not unbounded
-        TableEnvironment tableEnvironment = TableEnvironment.create(EnvironmentSettings.inStreamingMode());
-
+        //We create first a stream "execution environment" as we can create a web ui with it
+        StreamExecutionEnvironment executionEnvironment = StreamExecutionEnvironment.createLocalEnvironmentWithWebUI(new Configuration());
+        //We create a "table environment" with the previously "web execution environment"
+        TableEnvironment tableEnvironment = StreamTableEnvironment.create(executionEnvironment);
 
         //Creates an in memory table from an in memory data source
         tableEnvironment.createTemporaryTable("SourceTable", TableDescriptor.forConnector("datagen")
