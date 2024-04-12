@@ -10,7 +10,8 @@ with the License.  You may obtain a copy of the License at
   http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing,
-software distributed under the License is distributed on an
+software distributed under
+ the License is distributed on an
 "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
 KIND, either express or implied.  See the License for the
 specific language governing permissions and limitations
@@ -52,20 +53,32 @@ under the License.
     </repositories>
 
     <dependencies>
+        <!-- flink core provided to develop on local -->
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-clients</artifactId>
             <version>${flink.version}</version>
+            <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
+
+        <!-- flink Table API -->
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-table-api-java</artifactId>
             <version>${flink.version}</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-table-planner_2.12</artifactId>
             <version>${flink.version}</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.flink</groupId>
@@ -74,9 +87,7 @@ under the License.
             <scope>test</scope>
         </dependency>
 
-
-        <!-- connectors -->
-        <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-connector-files -->
+        <!-- Flink connectors -->
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-connector-files</artifactId>
@@ -88,7 +99,7 @@ under the License.
             <version>3.1.0-1.18</version>
         </dependency>
 
-        <!-- data types -->
+        <!-- Flink data types -->
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-csv</artifactId>
@@ -110,11 +121,13 @@ under the License.
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-core</artifactId>
             <version>1.4.12</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>1.4.12</version>
+            <scope>provided</scope>
         </dependency>
 
     </dependencies>
