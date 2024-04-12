@@ -18,6 +18,7 @@
 
 package org.example;
 
+import org.apache.flink.connector.datagen.table.DataGenConnectorOptions;
 import org.apache.flink.table.api.*;
 
 import java.io.File;
@@ -28,42 +29,29 @@ public class TableApiJob {
 
     public static void main(String[] args) {
 
+        // We use streaming mode because the data is not unbounded
         TableEnvironment tableEnvironment = TableEnvironment.create(EnvironmentSettings.inStreamingMode());
 
-        final Schema schema = Schema.newBuilder().column("a", DataTypes.INT()).column("b", DataTypes.STRING()).column("c", DataTypes.BIGINT()).build();
 
-        //Describes a source of data, e.g. a filesystem
-        TableDescriptor tableDescriptor = TableDescriptor
-                .forConnector("filesystem")
-                .schema(schema)
-                .option("path", getAbsolutePath("src/main/resources/source.csv"))
-                .format(FormatDescriptor.forFormat("csv")
-                        .option("field-delimiter", ",")
+        //Creates an in memory table from an in memory data source
+        tableEnvironment.createTemporaryTable("SourceTable", TableDescriptor.forConnector("datagen")
+                .schema(Schema.newBuilder()
+                        .column("f0", DataTypes.INT())
+                        .column("f1", DataTypes.INT())
                         .build())
-                .build();
+                .option(DataGenConnectorOptions.ROWS_PER_SECOND, 100L)
+                .build());
 
-        //We create a table from a file source connector which has some options to affect how rows are created
-        //We could have created a table from other external source such as kafka or from memory by selecting the
-        //correct table descriptor connector
-        tableEnvironment.createTemporaryTable("SourceTable", tableDescriptor);
+        Table result = tableEnvironment.from("SourceTable").select($("f0"));
 
-        //virtual table created from query as results. AKA views in sql jergon
-        //We might have used the SQL api e.g. tableEnv.executeSql("CREATE [TEMPORARY] TABLE MyTable (...) WITH (...)");
-        Table result = tableEnvironment.from("SourceTable").select($("a"));
-
-        // Create a sink table (using SQL DDL instead of Table API as done before)
-        tableEnvironment.executeSql("CREATE TEMPORARY TABLE SinkTable(A INT) WITH " + "('connector' = 'filesystem'," + " 'path' = '" + getAbsolutePath("src/main/resources") + "'," + " 'format' = 'json')");
+        tableEnvironment.createTemporaryTable("SinkTable", TableDescriptor.forConnector("print")
+                .schema(Schema.newBuilder()
+                        .column("f0", DataTypes.INT())
+                        .build())
+                .build());
 
         TablePipeline pipeline = result.insertInto("SinkTable");
         pipeline.printExplain();
         pipeline.execute();
-    }
-
-    private static String getAbsolutePath(String pathname) {
-        return new File(pathname).getAbsolutePath();
-    }
-
-    private static String pathFromResourceFolder(String name) {
-        return TableApiJob.class.getClassLoader().getResource(name).getPath();
     }
 }
