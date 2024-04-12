@@ -24,7 +24,7 @@ import java.io.File;
 
 import static org.apache.flink.table.api.Expressions.$;
 
-public class DataStreamJob {
+public class TableApiJob {
 
     public static void main(String[] args) {
 
@@ -64,6 +64,6 @@ public class DataStreamJob {
     }
 
     private static String pathFromResourceFolder(String name) {
-        return DataStreamJob.class.getClassLoader().getResource(name).getPath();
+        return TableApiJob.class.getClassLoader().getResource(name).getPath();
     }
 }
