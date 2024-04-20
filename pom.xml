@@ -49,7 +49,7 @@
             </exclusions>
         </dependency>
 
-        <!-- flink Table API -->
+        <!-- Flink Table API -->
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-table-api-java</artifactId>
@@ -69,7 +69,17 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- Flink Web UI -->
+
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-runtime-web</artifactId>
+            <version>${flink.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
         <!-- Flink connectors -->
+
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-connector-files</artifactId>
@@ -82,6 +92,7 @@
         </dependency>
 
         <!-- Flink data types -->
+
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-csv</artifactId>
@@ -92,8 +103,6 @@
             <artifactId>flink-json</artifactId>
             <version>${flink.version}</version>
         </dependency>
-
-        <!-- flink netty basic auth handler -->
 
         <!-- loggers -->
         <dependency>

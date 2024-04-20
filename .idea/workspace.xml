@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0e9736a-a70c-4e6f-bf28-ca1ed565b2d1" name="Changes" comment="update project conf">
-      <change afterPath="$PROJECT_DIR$/libs/basic-auth-handler-1.0.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flink-table-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/flink-table-api.iml" afterDir="false" />
+    <list default="true" id="b0e9736a-a70c-4e6f-bf28-ca1ed565b2d1" name="Changes" comment="add web ui">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -235,7 +234,8 @@
     <MESSAGE value="provides datagen with a webui" />
     <MESSAGE value="add ignore files" />
     <MESSAGE value="update project conf" />
-    <option name="LAST_COMMIT_MESSAGE" value="update project conf" />
+    <MESSAGE value="add web ui" />
+    <option name="LAST_COMMIT_MESSAGE" value="add web ui" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
