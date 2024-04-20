@@ -32,7 +32,11 @@ public class TableApiJob {
 
     public static void main(String[] args) {
         //We create first a stream "execution environment" as we can create a web ui with it
-        StreamExecutionEnvironment executionEnvironment = StreamExecutionEnvironment.createLocalEnvironmentWithWebUI(new Configuration());
+        Configuration conf = new Configuration();
+        conf.setString("security.basic.auth.enabled", "true");
+        conf.setString("security.basic.auth.client.credentials", "testusr:$apr1$w7MhlTpg$r1Lx2b8S21.Y97ohCvNTj/");
+
+        StreamExecutionEnvironment executionEnvironment = StreamExecutionEnvironment.createLocalEnvironmentWithWebUI(conf);
         //We create a "table environment" with the previously "web execution environment"
         TableEnvironment tableEnvironment = StreamTableEnvironment.create(executionEnvironment);
 
