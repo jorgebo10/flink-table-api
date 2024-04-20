@@ -93,6 +93,8 @@
             <version>${flink.version}</version>
         </dependency>
 
+        <!-- flink netty basic auth handler -->
+
         <!-- loggers -->
         <dependency>
             <groupId>org.slf4j</groupId>

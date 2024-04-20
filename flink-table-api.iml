@@ -43,8 +43,8 @@ under the License.
         </library>
       </orderEntry>
      -->  
-    <output url="file://$MODULE_DIR$/target/classes"/>
-    <output-test url="file://$MODULE_DIR$/target/test-classes"/>
+    <output url="file://$MODULE_DIR$/target/classes"/>  
+    <output-test url="file://$MODULE_DIR$/target/test-classes"/>  
     <orderEntry type="module-library">
       <library>
         <CLASSES>
@@ -791,6 +791,13 @@ under the License.
       <library>
         <CLASSES>
           <root url="jar:///Users/jorge.bo/.m2/repository/com/twitter/chill_2.12/0.7.6/chill_2.12-0.7.6.jar!/"/>
+        </CLASSES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/jorge.bo/.m2/repository/com/hellofresh/flink/basic-auth-handler/1.0.0/basic-auth-handler-1.0.0.jar!/"/>
         </CLASSES>
       </library>
     </orderEntry>
