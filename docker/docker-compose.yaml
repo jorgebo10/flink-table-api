@@ -1,0 +1,23 @@
+services:
+  jobmanager:
+    platform: linux/amd64
+    image: flink:1.18-java11
+    command: "jobmanager.sh start-foreground"
+    ports:
+      - 8081:8081
+    volumes:
+      - flink_data:/tmp/
+    environment:
+      - JOB_MANAGER_RPC_ADDRESS=jobmanager
+  taskmanager:
+    platform: linux/amd64
+    image: flink:1.18-java11
+    depends_on:
+      - jobmanager
+    command: "taskmanager.sh start-foreground"
+    volumes:
+      - flink_data:/tmp/
+    environment:
+      - JOB_MANAGER_RPC_ADDRESS=jobmanager
+volumes:
+  flink_data:

@@ -18,26 +18,33 @@
 
 package org.example;
 
-import org.apache.flink.configuration.Configuration;
 import org.apache.flink.connector.datagen.table.DataGenConnectorOptions;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.table.api.*;
 import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
 
-import java.io.File;
-
 import static org.apache.flink.table.api.Expressions.$;
 
+//2 ways of deployment:
+// 1. Framework style: The job is packed in a jar and submitted by a client to a running service
+// 2. Library style: The Flink app and the job are bundled in an application-specific container image, such as Docker.
 public class TableApiJob {
 
     public static void main(String[] args) {
-        //We create first a stream "execution environment" as we can create a web ui with it
-        Configuration conf = new Configuration();
-        conf.setString("security.basic.auth.enabled", "true");
-        conf.setString("security.basic.auth.client.credentials", "testusr:$apr1$w7MhlTpg$r1Lx2b8S21.Y97ohCvNTj/");
 
-        StreamExecutionEnvironment executionEnvironment = StreamExecutionEnvironment.createLocalEnvironmentWithWebUI(conf);
-        //We create a "table environment" with the previously "web execution environment"
+        //This is the entrypoint for any Flink application with local web ui
+        //StreamExecutionEnvironment executionEnvironment = StreamExecutionEnvironment.createLocalEnvironmentWithWebUI(conf);
+
+        //This is the entrypoint for any Flink application. Exec env will be automatically selected either local or remote
+        //StreamExecutionEnvironment executionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment();
+
+        //This is the entrypoint for any Flink application.Will deploy to a running cluster
+        StreamExecutionEnvironment executionEnvironment = StreamExecutionEnvironment.createRemoteEnvironment(
+                "localhost",
+                8081
+        );
+
+        //This is the entry point for Table API and SQL integration
         TableEnvironment tableEnvironment = StreamTableEnvironment.create(executionEnvironment);
 
         //Creates an in memory table from an in memory data source
