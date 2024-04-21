@@ -12,7 +12,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <flink.version>1.18.1</flink.version>
-        <target.java.version>1.8</target.java.version>
+        <target.java.version>11</target.java.version>
         <slf4j.version>2.0.12</slf4j.version>
         <logback.version>1.4.12</logback.version>
         <flink.connector.kafka.version>3.1.0-1.18</flink.connector.kafka.version>
