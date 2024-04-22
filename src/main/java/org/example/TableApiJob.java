@@ -36,13 +36,15 @@ public class TableApiJob {
         //StreamExecutionEnvironment executionEnvironment = StreamExecutionEnvironment.createLocalEnvironmentWithWebUI(conf);
 
         //This is the entrypoint for any Flink application. Exec env will be automatically selected either local or remote
-        //StreamExecutionEnvironment executionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment();
+        StreamExecutionEnvironment executionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment();
 
         //This is the entrypoint for any Flink application.Will deploy to a running cluster
-        StreamExecutionEnvironment executionEnvironment = StreamExecutionEnvironment.createRemoteEnvironment(
+       /* StreamExecutionEnvironment executionEnvironment = StreamExecutionEnvironment.createRemoteEnvironment(
                 "localhost",
                 8081
         );
+
+        */
 
         //This is the entry point for Table API and SQL integration
         TableEnvironment tableEnvironment = StreamTableEnvironment.create(executionEnvironment);

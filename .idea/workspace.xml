@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0e9736a-a70c-4e6f-bf28-ca1ed565b2d1" name="Changes" comment="include auth lib and set config">
-      <change afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/docker-compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="b0e9736a-a70c-4e6f-bf28-ca1ed565b2d1" name="Changes" comment="restore security">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/basic-auth-handler-1.0.0.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/TableApiJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/TableApiJob.java" afterDir="false" />
     </list>
@@ -54,12 +50,14 @@
     "Application.Submit Job.executor": "Run",
     "Application.TableApiJob.executor": "Run",
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
+    "Maven.flink-table-api [org.apache.maven.plugins:maven-assembly-plugin:2.4:assembly].executor": "Run",
+    "Maven.flink-table-api [org.apache.maven.plugins:maven-assembly-plugin:2.4:single].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
     "RunOnceActivity.go.migrated.go.modules.settings": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "datagen-webui-basic-auth",
+    "git-widget-placeholder": "deployment-modes",
     "go.import.settings.migrated": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/jorge.bo/hf/flink-table-api/libs",
@@ -270,7 +268,8 @@
     <MESSAGE value="add web ui" />
     <MESSAGE value="update project conf" />
     <MESSAGE value="include auth lib and set config" />
-    <option name="LAST_COMMIT_MESSAGE" value="include auth lib and set config" />
+    <MESSAGE value="restore security" />
+    <option name="LAST_COMMIT_MESSAGE" value="restore security" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
