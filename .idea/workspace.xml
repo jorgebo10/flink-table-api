@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0e9736a-a70c-4e6f-bf28-ca1ed565b2d1" name="Changes" comment="restore security">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/TableApiJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/TableApiJob.java" afterDir="false" />
-    </list>
+    <list default="true" id="b0e9736a-a70c-4e6f-bf28-ca1ed565b2d1" name="Changes" comment="removes sec lib as this is not a security example" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -85,39 +81,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="TableApiJob" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="temurin-11" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <classpathModifications>
-        <entry path="$PROJECT_DIR$/libs/basic-auth-handler-1.0.0.jar" />
-      </classpathModifications>
-      <envs>
-        <env name="security.basic.auth.enabled" value="true" />
-        <env name="security.basic.auth.client.credentials" value="testusr:$apr1$w7MhlTpg$r1Lx2b8S21.Y97ohCvNTj/" />
-      </envs>
-      <option name="INCLUDE_PROVIDED_SCOPE" value="true" />
-      <option name="MAIN_CLASS_NAME" value="org.example.TableApiJob" />
-      <module name="flink-table-api" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <extension name="net.ashald.envfile">
-        <option name="IS_ENABLED" value="false" />
-        <option name="IS_SUBST" value="false" />
-        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
-        <option name="IS_IGNORE_MISSING_FILES" value="false" />
-        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
-        <ENTRIES>
-          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
-        </ENTRIES>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.TableApiJob" />
@@ -251,7 +214,23 @@
       <option name="project" value="LOCAL" />
       <updated>1713645710224</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="fix maven compiler dependency version">
+      <option name="closed" value="true" />
+      <created>1713796157739</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1713796157739</updated>
+    </task>
+    <task id="LOCAL-00015" summary="removes sec lib as this is not a security example">
+      <option name="closed" value="true" />
+      <created>1713796269537</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1713796269537</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -269,7 +248,9 @@
     <MESSAGE value="update project conf" />
     <MESSAGE value="include auth lib and set config" />
     <MESSAGE value="restore security" />
-    <option name="LAST_COMMIT_MESSAGE" value="restore security" />
+    <MESSAGE value="fix maven compiler dependency version" />
+    <MESSAGE value="removes sec lib as this is not a security example" />
+    <option name="LAST_COMMIT_MESSAGE" value="removes sec lib as this is not a security example" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
