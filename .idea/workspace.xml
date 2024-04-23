@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0e9736a-a70c-4e6f-bf28-ca1ed565b2d1" name="Changes" comment="stores idea runtime config">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-    </list>
+    <list default="true" id="b0e9736a-a70c-4e6f-bf28-ca1ed565b2d1" name="Changes" comment="adds spring boot plugin to create an autoexecutable jar file" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -250,7 +247,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713797300049</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="adds spring boot plugin to create an autoexecutable jar file">
+      <option name="closed" value="true" />
+      <created>1713802722598</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1713802722598</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -271,7 +276,8 @@
     <MESSAGE value="fix maven compiler dependency version" />
     <MESSAGE value="removes sec lib as this is not a security example" />
     <MESSAGE value="stores idea runtime config" />
-    <option name="LAST_COMMIT_MESSAGE" value="stores idea runtime config" />
+    <MESSAGE value="adds spring boot plugin to create an autoexecutable jar file" />
+    <option name="LAST_COMMIT_MESSAGE" value="adds spring boot plugin to create an autoexecutable jar file" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
