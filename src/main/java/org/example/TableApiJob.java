@@ -19,15 +19,18 @@
 package org.example;
 
 import org.apache.flink.connector.datagen.table.DataGenConnectorOptions;
+import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.apache.flink.streaming.api.windowing.assigners.SlidingEventTimeWindows;
 import org.apache.flink.table.api.*;
 import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
+import org.apache.flink.table.types.DataType;
+import org.apache.flink.types.Row;
 
+import static org.apache.flink.streaming.api.windowing.time.Time.minutes;
 import static org.apache.flink.table.api.Expressions.$;
+import static org.apache.flink.table.api.Expressions.lit;
 
-//2 ways of deployment:
-// 1. Framework style: The job is packed in a jar and submitted by a client to a running service
-// 2. Library style: The Flink app and the job are bundled in an application-specific container image, such as Docker.
 public class TableApiJob {
 
     public static void main(String[] args) {
@@ -35,36 +38,29 @@ public class TableApiJob {
         //This is the entrypoint for any Flink application. Exec env will be automatically selected either local or remote
         StreamExecutionEnvironment executionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment();
 
-        //This is the entrypoint for any Flink application.Will deploy to a running cluster
-       /* StreamExecutionEnvironment executionEnvironment = StreamExecutionEnvironment.createRemoteEnvironment(
-                "localhost",
-                8081
-        );
-
-        */
-
-        //This is the entry point for Table API and SQL integration
+        //This is the entry point for Table API and SQL and Stream integration
         TableEnvironment tableEnvironment = StreamTableEnvironment.create(executionEnvironment);
 
         //Creates an in memory table from an in memory data source
         tableEnvironment.createTemporaryTable("SourceTable", TableDescriptor.forConnector("datagen")
                 .schema(Schema.newBuilder()
-                        .column("f0", DataTypes.INT())
-                        .column("f1", DataTypes.INT())
+                        .columnByExpression("proc_time", "PROCTIME()")
+                        .column("item", DataTypes.STRING())
+                        .column("quantity", DataTypes.INT())
                         .build())
-                .option(DataGenConnectorOptions.ROWS_PER_SECOND, 100L)
+                .option(DataGenConnectorOptions.ROWS_PER_SECOND, 1L)
                 .build());
 
-        Table result = tableEnvironment.from("SourceTable").select($("f0"));
+        Table sourceTable = tableEnvironment.from("SourceTable");
 
-        tableEnvironment.createTemporaryTable("SinkTable", TableDescriptor.forConnector("print")
-                .schema(Schema.newBuilder()
-                        .column("f0", DataTypes.INT())
-                        .build())
-                .build());
+        Table result = sourceTable
+                .window(Tumble.over(lit(1).minutes())
+                        .on($("proc_time"))
+                        .as("fiveMinutesWindow"))
+                .groupBy($("fiveMinutesWindow"), $("item"))
+                .select($("item"), $("fiveMinutesWindow").end().as("hour"), $("quantity").avg().as("avgBillingAmount"));
 
-        TablePipeline pipeline = result.insertInto("SinkTable");
-        pipeline.printExplain();
-        pipeline.execute();
+        sourceTable.printSchema();
+        result.execute().print();
     }
 }
