@@ -1,17 +1,28 @@
-target/
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.versionsBackup
-pom.xml.next
-release.properties
-dependency-reduced-pom.xml
-buildNumber.properties
-.mvn/timing.properties
-# https://github.com/takari/maven-wrapper#usage-without-binary-jar
-.mvn/wrapper/maven-wrapper.jar
+# IntelliJ
+/.idea/*
+!/.idea/jsonSchemas/
+!/.idea/jsonSchemas.xml
+!/.idea/icon.svg
+out/
+*.iml
+*.ipr
+*.iws
 
-# Eclipse m2e generated files
-# Eclipse Core
-.project
-# JDT-specific (Eclipse Java Development Tools)
-.classpath
+# Required plugins to work properly with the project in IntelliJ. Users who open
+# the project get an error if any of the plugins listed in this file are not
+# installed, with the possibility to directly install them. This ensures that
+# our users have everything they need to work efficiently with the project.
+!/.idea/externalDependencies.xml
+
+# VisualStudio Code
+/.vscode/*
+!/.vscode/extensions.json
+!/.vscode/settings.json
+*.code-workspace
+
+# Gradle
+.gradle/
+build/
+
+# MAC
+.DS_Store
