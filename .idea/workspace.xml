@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0e9736a-a70c-4e6f-bf28-ca1ed565b2d1" name="Changes" comment="calculate average using a tumbling window">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
+    <list default="true" id="b0e9736a-a70c-4e6f-bf28-ca1ed565b2d1" name="Changes" comment="add docker">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +153,7 @@
       <recent name="$PROJECT_DIR$/libs" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.docker-compose.yaml.zookeeper: Compose Deployment">
+  <component name="RunManager" selected="Docker.docker-compose.yaml.control-center: Compose Deployment">
     <configuration name="AvroBuilder" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.flightsafe.infrastructure.avro.AvroBuilder" />
       <module name="flink-table-api" />
@@ -235,9 +234,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.docker-compose.yaml.control-center: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yaml.zookeeper: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yaml.schema-registry: Compose Deployment" />
-        <item itemvalue="Docker.docker-compose.yaml.control-center: Compose Deployment" />
         <item itemvalue="Gradle.flink-table-api [customAvroCodeGeneration]" />
         <item itemvalue="Application.AvroBuilder" />
       </list>
@@ -270,7 +269,7 @@
       <workItem from="1713641341991" duration="351000" />
       <workItem from="1713684797043" duration="4385000" />
       <workItem from="1713941056071" duration="9692000" />
-      <workItem from="1717405549652" duration="21021000" />
+      <workItem from="1717405549652" duration="21584000" />
     </task>
     <task id="LOCAL-00001" summary="add ignore files">
       <option name="closed" value="true" />
@@ -432,7 +431,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713963902879</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="add docker">
+      <option name="closed" value="true" />
+      <created>1717427275922</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1717427275922</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -466,7 +473,8 @@
     <MESSAGE value="stores idea runtime config" />
     <MESSAGE value="adds spring boot plugin to create an autoexecutable jar file" />
     <MESSAGE value="calculate average using a tumbling window" />
-    <option name="LAST_COMMIT_MESSAGE" value="calculate average using a tumbling window" />
+    <MESSAGE value="add docker" />
+    <option name="LAST_COMMIT_MESSAGE" value="add docker" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
