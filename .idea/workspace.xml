@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0e9736a-a70c-4e6f-bf28-ca1ed565b2d1" name="Changes" comment="add docker">
+    <list default="true" id="b0e9736a-a70c-4e6f-bf28-ca1ed565b2d1" name="Changes" comment="fix confluent deploy">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/example.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/avro/customer.avsc" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/avro/customer.avsc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hellofresh/customeractivity/domain/CustomerActivityStatistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hellofresh/customeractivity/domain/CustomerActivityStatistics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hellofresh/customeractivity/infrastructure/kafka/CustomerActivityDataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hellofresh/customeractivity/infrastructure/kafka/CustomerActivityDataSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hellofresh/customeractivity/job/UserStaticsJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hellofresh/customeractivity/job/CustomerActivityJob.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,6 +117,7 @@
     "Docker.docker-compose.yaml.control-center: Compose Deployment.executor": "Run",
     "Docker.docker-compose.yaml.schema-registry: Compose Deployment.executor": "Run",
     "Docker.docker-compose.yaml.zookeeper: Compose Deployment.executor": "Run",
+    "Gradle.flink-table-api [:CustomerActivityJob.main()].executor": "Run",
     "Gradle.flink-table-api [customAvroCodeGeneration].executor": "Run",
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
     "Maven.flink-table-api [org.apache.maven.plugins:maven-assembly-plugin:2.4:assembly].executor": "Run",
@@ -153,13 +160,13 @@
       <recent name="$PROJECT_DIR$/libs" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.docker-compose.yaml.control-center: Compose Deployment">
-    <configuration name="AvroBuilder" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.flightsafe.infrastructure.avro.AvroBuilder" />
-      <module name="flink-table-api" />
+  <component name="RunManager" selected="Application.CustomerActivityJob">
+    <configuration name="CustomerActivityJob" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.hellofresh.customeractivity.job.CustomerActivityJob" />
+      <module name="flink-table-api.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.flightsafe.infrastructure.avro.*" />
+          <option name="PATTERN" value="com.hellofresh.customeractivity.job.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -234,11 +241,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CustomerActivityJob" />
+        <item itemvalue="Gradle.flink-table-api [customAvroCodeGeneration]" />
         <item itemvalue="Docker.docker-compose.yaml.control-center: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yaml.zookeeper: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yaml.schema-registry: Compose Deployment" />
-        <item itemvalue="Gradle.flink-table-api [customAvroCodeGeneration]" />
-        <item itemvalue="Application.AvroBuilder" />
       </list>
     </recent_temporary>
   </component>
@@ -269,7 +276,7 @@
       <workItem from="1713641341991" duration="351000" />
       <workItem from="1713684797043" duration="4385000" />
       <workItem from="1713941056071" duration="9692000" />
-      <workItem from="1717405549652" duration="21584000" />
+      <workItem from="1717405549652" duration="22550000" />
     </task>
     <task id="LOCAL-00001" summary="add ignore files">
       <option name="closed" value="true" />
@@ -439,7 +446,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717427275922</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="fix confluent deploy">
+      <option name="closed" value="true" />
+      <created>1717427832755</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1717427832755</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -474,7 +489,8 @@
     <MESSAGE value="adds spring boot plugin to create an autoexecutable jar file" />
     <MESSAGE value="calculate average using a tumbling window" />
     <MESSAGE value="add docker" />
-    <option name="LAST_COMMIT_MESSAGE" value="add docker" />
+    <MESSAGE value="fix confluent deploy" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix confluent deploy" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

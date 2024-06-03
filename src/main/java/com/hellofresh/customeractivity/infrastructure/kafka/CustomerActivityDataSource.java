@@ -1,12 +1,12 @@
 package com.hellofresh.customeractivity.infrastructure.kafka;
 
+import com.hellofresh.customeractivity.avro.CustomerActivityEvent;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.connector.kafka.source.KafkaSource;
 import org.apache.flink.connector.kafka.source.enumerator.initializer.OffsetsInitializer;
 import org.apache.flink.formats.avro.registry.confluent.ConfluentRegistryAvroDeserializationSchema;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import org.flightsafe.avro.CustomerActivityEvent;
 
 
 public final class CustomerActivityDataSource {

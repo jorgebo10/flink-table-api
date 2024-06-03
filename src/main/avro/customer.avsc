@@ -1,7 +1,7 @@
 {
     "name": "CustomerActivityEvent",
     "type": "record",
-    "namespace": "org.flightsafe.avro",
+    "namespace": "com.hellofresh.customeractivity.avro",
     "doc": "Event used to track customers' authentication activity",
     "fields": [
         {

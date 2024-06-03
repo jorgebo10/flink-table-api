@@ -1,6 +1,6 @@
 package com.hellofresh.customeractivity.domain;
 
-import org.flightsafe.avro.CustomerActivityEvent;
+import com.hellofresh.customeractivity.avro.CustomerActivityEvent;
 
 import java.util.HashMap;
 import java.util.Map;

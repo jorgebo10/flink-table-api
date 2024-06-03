@@ -46,8 +46,6 @@ sourceSets {
 dependencies {
     api(libs.org.slf4j.slf4j.api)
     api(libs.org.apache.flink.flink.connector.kafka)
-    api(libs.org.apache.flink.flink.csv)
-    api(libs.org.apache.flink.flink.json)
     api(libs.org.apache.flink.flink.avro)
     api(libs.org.apache.flink.flink.avro.confluent.registry)
     api(libs.org.apache.avro.avro.compiler)

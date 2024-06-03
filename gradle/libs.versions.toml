@@ -9,8 +9,6 @@ org-apache-flink-flink-avro = "1.18.1"
 org-apache-flink-flink-avro-confluent-registry = "1.18.1"
 org-apache-flink-flink-clients = "1.18.1"
 org-apache-flink-flink-connector-kafka = "3.1.0-1.18"
-org-apache-flink-flink-csv = "1.18.1"
-org-apache-flink-flink-json = "1.18.1"
 org-slf4j-slf4j-api = "2.0.12"
 avro = "1.11.0"
 
@@ -22,8 +20,6 @@ org-apache-flink-flink-avro = { module = "org.apache.flink:flink-avro", version.
 org-apache-flink-flink-avro-confluent-registry = { module = "org.apache.flink:flink-avro-confluent-registry", version.ref = "org-apache-flink-flink-avro-confluent-registry" }
 org-apache-flink-flink-clients = { module = "org.apache.flink:flink-clients", version.ref = "org-apache-flink-flink-clients" }
 org-apache-flink-flink-connector-kafka = { module = "org.apache.flink:flink-connector-kafka", version.ref = "org-apache-flink-flink-connector-kafka" }
-org-apache-flink-flink-csv = { module = "org.apache.flink:flink-csv", version.ref = "org-apache-flink-flink-csv" }
-org-apache-flink-flink-json = { module = "org.apache.flink:flink-json", version.ref = "org-apache-flink-flink-json" }
 org-slf4j-slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "org-slf4j-slf4j-api" }
 avro = { module = "org.apache.avro:avro", version.ref = "avro" }
 avro-tools = { module = "org.apache.avro:avro-tools", version.ref = "avro" }
