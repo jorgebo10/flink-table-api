@@ -5,20 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0e9736a-a70c-4e6f-bf28-ca1ed565b2d1" name="Changes" comment="calculate average using a tumbling window">
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/avro/customer.avsc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hellofresh/customeractivity/domain/CustomerActivityStatistics.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hellofresh/customeractivity/domain/ProcessCustomerActivityStaticsFunction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hellofresh/customeractivity/infrastructure/kafka/CustomerActivityDataSource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hellofresh/customeractivity/infrastructure/kafka/UserStaticsSink.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hellofresh/customeractivity/job/UserStaticsJob.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/TableApiJob.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,6 +83,10 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$MAVEN_REPOSITORY$/org/apache/flink/flink-table-api-java/1.18.1/flink-table-api-java-1.18.1-sources.jar!/org/apache/flink/table/api/TableEnvironment.java" root0="SKIP_INSPECTION" />
   </component>
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -116,6 +109,9 @@
     "Application.DataStreamJob.executor": "Run",
     "Application.Submit Job.executor": "Run",
     "Application.TableApiJob.executor": "Debug",
+    "Docker.docker-compose.yaml.control-center: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yaml.schema-registry: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yaml.zookeeper: Compose Deployment.executor": "Run",
     "Gradle.flink-table-api [customAvroCodeGeneration].executor": "Run",
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
     "Maven.flink-table-api [org.apache.maven.plugins:maven-assembly-plugin:2.4:assembly].executor": "Run",
@@ -129,7 +125,7 @@
     "git-widget-placeholder": "stateful-data-stream-kafka",
     "go.import.settings.migrated": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/jorge.bo/hf/flink-table-api/src/main/java",
+    "last_opened_file_path": "/Users/jorge.bo/hf/flink-table-api",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -147,18 +143,18 @@
       <recent name="org.example" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/main/java" />
       <recent name="$PROJECT_DIR$/src/main/avro" />
       <recent name="$PROJECT_DIR$/libs" />
       <recent name="$PROJECT_DIR$/src/main/java/org/example" />
-      <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/docker" />
       <recent name="$PROJECT_DIR$/libs" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.flink-table-api [customAvroCodeGeneration]">
+  <component name="RunManager" selected="Docker.docker-compose.yaml.zookeeper: Compose Deployment">
     <configuration name="AvroBuilder" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.flightsafe.infrastructure.avro.AvroBuilder" />
       <module name="flink-table-api" />
@@ -194,8 +190,54 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml" />
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yaml.control-center: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="control-center" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yaml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yaml.schema-registry: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="schema-registry" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yaml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yaml.zookeeper: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="zookeeper" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yaml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.docker-compose.yaml.zookeeper: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yaml.schema-registry: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yaml.control-center: Compose Deployment" />
         <item itemvalue="Gradle.flink-table-api [customAvroCodeGeneration]" />
         <item itemvalue="Application.AvroBuilder" />
       </list>
@@ -228,7 +270,7 @@
       <workItem from="1713641341991" duration="351000" />
       <workItem from="1713684797043" duration="4385000" />
       <workItem from="1713941056071" duration="9692000" />
-      <workItem from="1717405549652" duration="16707000" />
+      <workItem from="1717405549652" duration="21021000" />
     </task>
     <task id="LOCAL-00001" summary="add ignore files">
       <option name="closed" value="true" />
