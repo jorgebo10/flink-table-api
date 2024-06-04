@@ -16,13 +16,19 @@ public class CustomerActivityJob {
     public static void main(String[] args) {
         //This is the entrypoint for any Flink application. Exec env will be automatically selected either local or remote
         StreamExecutionEnvironment executionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment();
+        executionEnvironment.getConfig().enableForceAvro();
+
         DataStreamSource<CustomerActivityEvent> flightDataDataStream = new CustomerActivityDataSource(
                 "http://localhost:9092",
-                "my-topic",
+                "customer-activity-event",
                 "my-group-id",
                 "http://localhost:8081"
         ).create(executionEnvironment);
-        KafkaSink<CustomerActivityStatistics> statisticsKafkaSink = new UserStaticsSink().create(executionEnvironment);
+
+        KafkaSink<String> output = new UserStaticsSink(
+                "http://localhost:9092",
+                "output-topic"
+        ).create(executionEnvironment);
 
         flightDataDataStream
                 .name("customeractivitystatics_source").uid("customeractivitystatics_source")
@@ -31,7 +37,9 @@ public class CustomerActivityJob {
                 .window(TumblingEventTimeWindows.of(minutes(1)))
                 .reduce(CustomerActivityStatistics::merge, new ProcessCustomerActivityStaticsFunction())
                 .name("customeractivitystatics_reduce").uid("customeractivitystatics_reduce")
-                .sinkTo(statisticsKafkaSink)
-                .name("customeractivitystatics_sink");
+                .map(CustomerActivityStatistics::toString)
+                .name("customeractivitystatics_map_to_string").uid("customeractivitystatics_map_to_string")
+                .sinkTo(output)
+                .name("customeractivitystatics_sink").uid("customeractivitystatics_sink");
     }
 }

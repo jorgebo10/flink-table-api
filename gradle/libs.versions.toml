@@ -13,13 +13,19 @@ org-slf4j-slf4j-api = "2.0.12"
 avro = "1.11.0"
 
 [libraries]
+org-slf4j-slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "org-slf4j-slf4j-api" }
 ch-qos-logback-logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "ch-qos-logback-logback-classic" }
 ch-qos-logback-logback-core = { module = "ch.qos.logback:logback-core", version.ref = "ch-qos-logback-logback-core" }
-org-apache-avro-avro-compiler = { module = "org.apache.avro:avro-compiler", version.ref = "org-apache-avro-avro-compiler" }
-org-apache-flink-flink-avro = { module = "org.apache.flink:flink-avro", version.ref = "org-apache-flink-flink-avro" }
 org-apache-flink-flink-avro-confluent-registry = { module = "org.apache.flink:flink-avro-confluent-registry", version.ref = "org-apache-flink-flink-avro-confluent-registry" }
 org-apache-flink-flink-clients = { module = "org.apache.flink:flink-clients", version.ref = "org-apache-flink-flink-clients" }
+org-apache-flink-streaming-java = { module = "org.apache.flink:flink-streaming-java", version.ref = "org-apache-flink-flink-clients" }
+org-apache-flink-connector-base = { module = "org.apache.flink:flink-connector-base", version.ref = "org-apache-flink-flink-clients" }
 org-apache-flink-flink-connector-kafka = { module = "org.apache.flink:flink-connector-kafka", version.ref = "org-apache-flink-flink-connector-kafka" }
-org-slf4j-slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "org-slf4j-slf4j-api" }
+org-apache-avro-avro-compiler = { module = "org.apache.avro:avro-compiler", version.ref = "org-apache-avro-avro-compiler" }
 avro = { module = "org.apache.avro:avro", version.ref = "avro" }
 avro-tools = { module = "org.apache.avro:avro-tools", version.ref = "avro" }
+
+[bundles]
+avro = ["avro", "avro-tools", "org-apache-avro-avro-compiler"]
+logback = ["ch-qos-logback-logback-classic", "ch-qos-logback-logback-core"]
+provided-flink =["org-apache-flink-streaming-java", "org-apache-flink-flink-clients"]

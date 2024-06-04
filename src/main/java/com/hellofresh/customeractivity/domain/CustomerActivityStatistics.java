@@ -5,17 +5,20 @@ import com.hellofresh.customeractivity.avro.CustomerActivityEvent;
 import java.util.HashMap;
 import java.util.Map;
 
-public final class CustomerActivityStatistics {
-    private final String countryCode;
-    private final Map<String, Integer> userAgentCount;
-
-    public CustomerActivityStatistics(String countryCode, Map<String, Integer> userAgentCount) {
-        this.countryCode = countryCode;
-        this.userAgentCount = userAgentCount;
-    }
+public class CustomerActivityStatistics {
+    private String countryCode;
+    private Map<String, Integer> userAgentCount;
 
     public String getCountryCode() {
         return countryCode;
+    }
+
+    public void setCountryCode(String countryCode) {
+        this.countryCode = countryCode;
+    }
+
+    public void setUserAgentCount(Map<String, Integer> userAgentCount) {
+        this.userAgentCount = userAgentCount;
     }
 
     public Map<String, Integer> getUserAgentCount() {
@@ -34,13 +37,18 @@ public final class CustomerActivityStatistics {
             agentsCount.put(key, sum);
         }
 
-        return new CustomerActivityStatistics(this.countryCode, agentsCount);
+        CustomerActivityStatistics customerActivityStatistics = new CustomerActivityStatistics();
+        customerActivityStatistics.setCountryCode(this.countryCode);
+        customerActivityStatistics.setUserAgentCount(agentsCount);
+
+        return customerActivityStatistics;
     }
 
 
     public static CustomerActivityStatistics fromCustomerActivityEvent(CustomerActivityEvent customerActivityEvent) {
-        return new CustomerActivityStatistics(
-                customerActivityEvent.getCountry(),
-                Map.of(customerActivityEvent.getUserAgent(), 1));
+        CustomerActivityStatistics customerActivityStatistics = new CustomerActivityStatistics();
+        customerActivityStatistics.setCountryCode(customerActivityEvent.getCountryCode());
+        customerActivityStatistics.setUserAgentCount(Map.of(customerActivityEvent.getUserAgent(), 1));
+        return customerActivityStatistics;
     }
 }

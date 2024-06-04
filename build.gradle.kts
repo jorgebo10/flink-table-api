@@ -1,3 +1,4 @@
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 import org.apache.avro.tool.SpecificCompilerTool
 
 /*
@@ -5,8 +6,10 @@ import org.apache.avro.tool.SpecificCompilerTool
  */
 
 plugins {
-    `java-library`
+    id("java")
+    id("application")
     `maven-publish`
+    id("com.github.johnrengelman.shadow") version ("7.1.2")
 }
 
 group = "org.example"
@@ -35,23 +38,39 @@ buildscript {
     }
 }
 
+val flinkShadowJar by configurations.creating {
+    exclude("org.apache.flink:force-shading")
+    exclude("com.google.code.findbugs:jsr305")
+    exclude("org.slf4j:slf4j-api")
+}
+
 sourceSets {
     main {
         java {
             srcDirs(avroJava)
         }
+        compileClasspath += configurations["flinkShadowJar"]
+        runtimeClasspath += configurations["flinkShadowJar"]
+    }
+    test {
+        compileClasspath += configurations["flinkShadowJar"]
+        runtimeClasspath += configurations["flinkShadowJar"]
     }
 }
 
+
+application {
+    mainClass.set("com.hellofresh.customeractiviety.job.CustomerActivityJob")
+}
+
 dependencies {
-    api(libs.org.slf4j.slf4j.api)
-    api(libs.org.apache.flink.flink.connector.kafka)
-    api(libs.org.apache.flink.flink.avro)
-    api(libs.org.apache.flink.flink.avro.confluent.registry)
-    api(libs.org.apache.avro.avro.compiler)
-    compileOnly(libs.org.apache.flink.flink.clients)
-    compileOnly(libs.ch.qos.logback.logback.core)
-    compileOnly(libs.ch.qos.logback.logback.classic)
+    compileOnly(libs.org.slf4j.slf4j.api)
+    flinkShadowJar(libs.org.apache.flink.flink.connector.kafka)
+    compileOnly(libs.bundles.avro)
+    implementation(libs.org.apache.flink.flink.avro.confluent.registry)
+    runtimeOnly(libs.bundles.logback)
+    implementation(libs.bundles.provided.flink)
+    implementation(libs.org.apache.flink.connector.base)
 }
 
 publishing {
@@ -67,6 +86,18 @@ tasks.withType<JavaCompile> {
 
 tasks.withType<Javadoc> {
     options.encoding = "UTF-8"
+}
+
+tasks.withType<ShadowJar> {
+    configurations += project.configurations["flinkShadowJar"]
+}
+
+tasks.withType<Jar> {
+    manifest {
+        attributes["Main-Class"] = "com.hellofresh.customeractiviety.job.CustomerActivityJob"
+        attributes["Built-By"] = System.getProperty("user.name")
+        attributes["Build-Jdk"] = System.getProperty("java.version")
+    }
 }
 
 tasks.register("customAvroCodeGeneration") {
@@ -85,7 +116,6 @@ tasks.register("customAvroCodeGeneration") {
                 "-encoding", "UTF-8",
                 "-string",
                 "-fieldVisibility", "private",
-                "-noSetters",
                 "schema", "$projectDir/$avroSrc", "$projectDir/$avroJava"
             )
         )

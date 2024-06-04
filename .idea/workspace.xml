@@ -4,15 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0e9736a-a70c-4e6f-bf28-ca1ed565b2d1" name="Changes" comment="fix confluent deploy">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/example.json" afterDir="false" />
+    <list default="true" id="b0e9736a-a70c-4e6f-bf28-ca1ed565b2d1" name="Changes" comment="updae build">
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flink-table-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/flink-table-api.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/avro/customer.avsc" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/avro/customer.avsc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hellofresh/customeractivity/domain/CustomerActivityStatistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hellofresh/customeractivity/domain/CustomerActivityStatistics.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hellofresh/customeractivity/infrastructure/kafka/CustomerActivityDataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hellofresh/customeractivity/infrastructure/kafka/CustomerActivityDataSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hellofresh/customeractivity/job/UserStaticsJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hellofresh/customeractivity/job/CustomerActivityJob.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hellofresh/customeractivity/infrastructure/kafka/UserStaticsSink.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hellofresh/customeractivity/infrastructure/kafka/UserStaticsSink.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hellofresh/customeractivity/job/CustomerActivityJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hellofresh/customeractivity/job/CustomerActivityJob.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,25 +75,25 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "jorgebo10"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;jorgebo10&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/jorgebo10/flink-table-api.git",
-    "accountId": "944ba249-d922-4655-98de-9ca619751dc6"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/jorgebo10/flink-table-api.git&quot;,
+    &quot;accountId&quot;: &quot;944ba249-d922-4655-98de-9ca619751dc6&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$MAVEN_REPOSITORY$/org/apache/flink/flink-table-api-java/1.18.1/flink-table-api-java-1.18.1-sources.jar!/org/apache/flink/table/api/TableEnvironment.java" root0="SKIP_INSPECTION" />
   </component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -106,44 +108,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Application.AvroBuilder.executor": "Debug",
-    "Application.DataStreamJob.executor": "Run",
-    "Application.Submit Job.executor": "Run",
-    "Application.TableApiJob.executor": "Debug",
-    "Docker.docker-compose.yaml.control-center: Compose Deployment.executor": "Run",
-    "Docker.docker-compose.yaml.schema-registry: Compose Deployment.executor": "Run",
-    "Docker.docker-compose.yaml.zookeeper: Compose Deployment.executor": "Run",
-    "Gradle.flink-table-api [:CustomerActivityJob.main()].executor": "Run",
-    "Gradle.flink-table-api [customAvroCodeGeneration].executor": "Run",
-    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
-    "Maven.flink-table-api [org.apache.maven.plugins:maven-assembly-plugin:2.4:assembly].executor": "Run",
-    "Maven.flink-table-api [org.apache.maven.plugins:maven-assembly-plugin:2.4:single].executor": "Run",
-    "Maven.flink-table-api [org.springframework.boot:spring-boot-maven-plugin:1.1.2.RELEASE:run].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "stateful-data-stream-kafka",
-    "go.import.settings.migrated": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/jorge.bo/hf/flink-table-api",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "profiler.jvm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Application.AvroBuilder.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.DataStreamJob.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Submit Job.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TableApiJob.executor&quot;: &quot;Debug&quot;,
+    &quot;Docker.docker-compose.yaml.control-center: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yaml.schema-registry: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yaml.zookeeper: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.flink-table-api [:CustomerActivityJob.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.flink-table-api [customAvroCodeGeneration].executor&quot;: &quot;Run&quot;,
+    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.flink-table-api [org.apache.maven.plugins:maven-assembly-plugin:2.4:assembly].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.flink-table-api [org.apache.maven.plugins:maven-assembly-plugin:2.4:single].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.flink-table-api [org.springframework.boot:spring-boot-maven-plugin:1.1.2.RELEASE:run].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;stateful-data-stream-kafka&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jorge.bo/hf/flink-table-api&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;profiler.jvm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.example" />
@@ -169,6 +171,16 @@
           <option name="PATTERN" value="com.hellofresh.customeractivity.job.*" />
           <option name="ENABLED" value="true" />
         </pattern>
+      </extension>
+      <extension name="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
       </extension>
       <method v="2">
         <option name="Make" enabled="true" />
@@ -197,7 +209,9 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
-      <deployment type="docker-compose.yml" />
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
       <method v="2" />
     </configuration>
     <configuration name="docker-compose.yaml.control-center: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
@@ -239,11 +253,19 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Application.TableApiJob" />
+      <item itemvalue="Application.CustomerActivityJob" />
+      <item itemvalue="Docker.docker-compose.yaml.control-center: Compose Deployment" />
+      <item itemvalue="Docker.docker-compose.yaml.schema-registry: Compose Deployment" />
+      <item itemvalue="Docker.docker-compose.yaml.zookeeper: Compose Deployment" />
+      <item itemvalue="Gradle.flink-table-api [customAvroCodeGeneration]" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.docker-compose.yaml.control-center: Compose Deployment" />
         <item itemvalue="Application.CustomerActivityJob" />
         <item itemvalue="Gradle.flink-table-api [customAvroCodeGeneration]" />
-        <item itemvalue="Docker.docker-compose.yaml.control-center: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yaml.zookeeper: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yaml.schema-registry: Compose Deployment" />
       </list>
@@ -276,7 +298,9 @@
       <workItem from="1713641341991" duration="351000" />
       <workItem from="1713684797043" duration="4385000" />
       <workItem from="1713941056071" duration="9692000" />
-      <workItem from="1717405549652" duration="22550000" />
+      <workItem from="1717405549652" duration="27351000" />
+      <workItem from="1717442315580" duration="1628000" />
+      <workItem from="1717503220742" duration="1152000" />
     </task>
     <task id="LOCAL-00001" summary="add ignore files">
       <option name="closed" value="true" />
@@ -454,7 +478,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717427832755</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="updae build">
+      <option name="closed" value="true" />
+      <created>1717428724097</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1717428724097</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -490,7 +522,8 @@
     <MESSAGE value="calculate average using a tumbling window" />
     <MESSAGE value="add docker" />
     <MESSAGE value="fix confluent deploy" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix confluent deploy" />
+    <MESSAGE value="updae build" />
+    <option name="LAST_COMMIT_MESSAGE" value="updae build" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

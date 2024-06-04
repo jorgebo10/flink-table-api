@@ -1,75 +1,24 @@
 {
-    "name": "CustomerActivityEvent",
-    "type": "record",
-    "namespace": "com.hellofresh.customeractivity.avro",
     "doc": "Event used to track customers' authentication activity",
     "fields": [
         {
-            "name": "user_uuid",
-            "type": "string",
             "doc": "user's id",
-            "logicalType": "uuid"
+            "name": "userUuid",
+            "type": "string"
         },
         {
-            "name": "country",
+            "doc": "country code",
+            "name": "countryCode",
             "type": "string",
-            "doc": "country code"
+            "default": ""
         },
         {
-            "name": "action",
-            "type": "string",
-            "doc": "user's action e.g login/forgot-password"
-        },
-        {
-            "name": "status",
-            "doc": "status of the action",
-            "type": {
-                "name": "status",
-                "type": "enum",
-                "symbols": [
-                    "success",
-                    "failure"
-                ]
-            }
-        },
-        {
-            "name": "reason",
-            "type": "string",
-            "doc": "the reason for the failure if any"
-        },
-        {
-            "name": "ip_address",
-            "type": "string",
-            "doc": "the client IP address"
-        },
-        {
-            "name": "access_jti",
-            "type": "string",
-            "doc": "user's access token ID if they are logged in"
-        },
-        {
-            "name": "user_agent",
-            "type": "string",
-            "doc": "to refer to the user client application specific to the user step that used when requesting the user activity i.e web browser, mobile applicaiton"
-        },
-        {
-            "name": "client_id",
-            "type": "string",
-            "doc": "to refer to the client application used to execute the user activity, this is the application id as registered in our backend systems"
-        },
-        {
-            "name": "occurred_at",
-            "type": "string",
-            "doc": "the time at which the action has occurred"
-        },
-        {
-            "name": "extra",
-            "type": {
-                "type": "map",
-                "values": "string"
-            },
-            "doc": "any metadata that can be useful specific to actions",
-            "default": {}
+            "doc": "to refer to the user client application specific to the user step that used when requesting the user activity i.e web browser, mobile applicaiton",
+            "name": "userAgent",
+            "type": "string"
         }
-    ]
+    ],
+    "name": "CustomerActivityEvent",
+    "namespace": "com.hellofresh.customeractivity.avro",
+    "type": "record"
 }
