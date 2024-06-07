@@ -30,6 +30,9 @@ repositories {
     maven {
         url = uri("https://repo.maven.apache.org/maven2/")
     }
+    maven {
+        url = uri("https://packages.confluent.io/maven")
+    }
 }
 
 buildscript {
@@ -40,6 +43,7 @@ buildscript {
 
 val flinkShadowJar by configurations.creating {
     exclude("org.apache.flink:force-shading")
+    exclude("org.apache.flink:flink-annotations")
     exclude("com.google.code.findbugs:jsr305")
     exclude("org.slf4j:slf4j-api")
 }
@@ -60,17 +64,18 @@ sourceSets {
 
 
 application {
-    mainClass.set("com.hellofresh.customeractiviety.job.CustomerActivityJob")
+    mainClass.set("com.hellofresh.customeractivity.job.CustomerActivityJob")
 }
 
 dependencies {
-    compileOnly(libs.org.slf4j.slf4j.api)
-    flinkShadowJar(libs.org.apache.flink.flink.connector.kafka)
-    compileOnly(libs.bundles.avro)
-    implementation(libs.org.apache.flink.flink.avro.confluent.registry)
+    compileOnly(libs.slf4j.api)
+    implementation(libs.flink.connector.kafka)
+    implementation(libs.bundles.avro)
+    implementation(libs.flink.avro.confluent.registry)
     runtimeOnly(libs.bundles.logback)
     implementation(libs.bundles.provided.flink)
-    implementation(libs.org.apache.flink.connector.base)
+    implementation(libs.flink.connector.base)
+    implementation(libs.flink.avro.confluent.registry)
 }
 
 publishing {
@@ -94,7 +99,7 @@ tasks.withType<ShadowJar> {
 
 tasks.withType<Jar> {
     manifest {
-        attributes["Main-Class"] = "com.hellofresh.customeractiviety.job.CustomerActivityJob"
+        attributes["Main-Class"] = "com.hellofresh.customeractivity.job.CustomerActivityJob"
         attributes["Built-By"] = System.getProperty("user.name")
         attributes["Build-Jdk"] = System.getProperty("java.version")
     }

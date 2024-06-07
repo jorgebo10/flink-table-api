@@ -1,33 +1,36 @@
 package com.hellofresh.customeractivity.infrastructure.kafka;
 
-import org.apache.flink.api.common.serialization.SimpleStringSchema;
+import com.hellofresh.browserstatics.avro.BrowserStaticsEvent;
 import org.apache.flink.connector.kafka.sink.KafkaRecordSerializationSchema;
 import org.apache.flink.connector.kafka.sink.KafkaSink;
+import org.apache.flink.formats.avro.registry.confluent.ConfluentRegistryAvroSerializationSchema;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
-import java.util.Properties;
-
 public class UserStaticsSink {
-    private final String bootstrapServers;
+    public final String schemaRegistryUrl;
     private final String topic;
+    private final String brokerUrl;
 
-    public UserStaticsSink(String bootstrapServers, String topic) {
-        this.bootstrapServers = bootstrapServers;
+    public UserStaticsSink(String brokerUrl, String topic, String schemaRegistryUrl) {
+        this.brokerUrl = brokerUrl;
+        this.schemaRegistryUrl = schemaRegistryUrl;
         this.topic = topic;
     }
 
-    public KafkaSink<String> create(StreamExecutionEnvironment environment) {
-        Properties properties = new Properties();
-        properties.setProperty("transaction.timeout.ms", "7200000"); // e.g., 2 hours
-
-        return KafkaSink.<String>builder()
-                .setBootstrapServers(bootstrapServers)
-                .setKafkaProducerConfig(properties)
-                .setRecordSerializer(KafkaRecordSerializationSchema.builder()
-                        .setTopic(topic)
-                        .setValueSerializationSchema(new SimpleStringSchema())
-                        .build()
-                )
+    public KafkaSink<BrowserStaticsEvent> create() {
+        return KafkaSink.<BrowserStaticsEvent>builder()
+                .setBootstrapServers(brokerUrl)
+                .setRecordSerializer(
+                        KafkaRecordSerializationSchema.builder()
+                                .setValueSerializationSchema(
+                                        ConfluentRegistryAvroSerializationSchema
+                                                .forSpecific(
+                                                        BrowserStaticsEvent.class,
+                                                        topic + "-value",
+                                                        schemaRegistryUrl))
+                                .setTopic(topic)
+                                .build())
                 .build();
+
     }
 }

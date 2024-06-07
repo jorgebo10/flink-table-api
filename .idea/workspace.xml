@@ -4,17 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0e9736a-a70c-4e6f-bf28-ca1ed565b2d1" name="Changes" comment="updae build">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="b0e9736a-a70c-4e6f-bf28-ca1ed565b2d1" name="Changes" comment="calculate average using a tumbling window">
+      <change afterPath="$PROJECT_DIR$/makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/avro/statics.avsc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hellofresh/customeractivity/infrastructure/kafka/MessageProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flink-table-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/flink-table-api.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flink-table-api.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/avro/customer.avsc" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/avro/customer.avsc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hellofresh/customeractivity/domain/CustomerActivityStatistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hellofresh/customeractivity/domain/CustomerActivityStatistics.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hellofresh/customeractivity/infrastructure/kafka/UserStaticsSink.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hellofresh/customeractivity/infrastructure/kafka/UserStaticsSink.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hellofresh/customeractivity/job/CustomerActivityJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hellofresh/customeractivity/job/CustomerActivityJob.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/example.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/example.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,15 +116,16 @@
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Application.AvroBuilder.executor&quot;: &quot;Debug&quot;,
     &quot;Application.DataStreamJob.executor&quot;: &quot;Run&quot;,
     &quot;Application.Submit Job.executor&quot;: &quot;Run&quot;,
     &quot;Application.TableApiJob.executor&quot;: &quot;Debug&quot;,
     &quot;Docker.docker-compose.yaml.control-center: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.docker-compose.yaml.schema-registry: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.docker-compose.yaml.zookeeper: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.flink-table-api [:CustomerActivityJob.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.flink-table-api [:MessageProducer.main()].executor&quot;: &quot;Debug&quot;,
     &quot;Gradle.flink-table-api [customAvroCodeGeneration].executor&quot;: &quot;Run&quot;,
+    &quot;Makefile Target.clobber.executor&quot;: &quot;Run&quot;,
+    &quot;Makefile Target.start.executor&quot;: &quot;Run&quot;,
     &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
     &quot;Maven.flink-table-api [org.apache.maven.plugins:maven-assembly-plugin:2.4:assembly].executor&quot;: &quot;Run&quot;,
     &quot;Maven.flink-table-api [org.apache.maven.plugins:maven-assembly-plugin:2.4:single].executor&quot;: &quot;Run&quot;,
@@ -133,16 +138,16 @@
     &quot;git-widget-placeholder&quot;: &quot;stateful-data-stream-kafka&quot;,
     &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/jorge.bo/hf/flink-table-api&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jorge.bo/hf/flink-table-api/src/main/avro&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;profiler.jvm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -151,9 +156,8 @@
       <recent name="org.example" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/main/java" />
       <recent name="$PROJECT_DIR$/src/main/avro" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/libs" />
       <recent name="$PROJECT_DIR$/src/main/java/org/example" />
     </key>
@@ -172,15 +176,18 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <extension name="net.ashald.envfile">
-        <option name="IS_ENABLED" value="false" />
-        <option name="IS_SUBST" value="false" />
-        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
-        <option name="IS_IGNORE_MISSING_FILES" value="false" />
-        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
-        <ENTRIES>
-          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
-        </ENTRIES>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MessageProducer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.hellofresh.customeractivity.infrastructure.kafka.MessageProducer" />
+      <module name="flink-table-api.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hellofresh.customeractivity.infrastructure.kafka.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
       </extension>
       <method v="2">
         <option name="Make" enabled="true" />
@@ -208,66 +215,31 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="clobber" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/makefile" target="clobber" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <configuration name="start" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/makefile" target="start" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
         <settings />
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="docker-compose.yaml.control-center: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="services">
-            <list>
-              <option value="control-center" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="docker-compose.yaml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <configuration name="docker-compose.yaml.schema-registry: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="services">
-            <list>
-              <option value="schema-registry" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="docker-compose.yaml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <configuration name="docker-compose.yaml.zookeeper: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="services">
-            <list>
-              <option value="zookeeper" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="docker-compose.yaml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <list>
-      <item itemvalue="Application.TableApiJob" />
-      <item itemvalue="Application.CustomerActivityJob" />
-      <item itemvalue="Docker.docker-compose.yaml.control-center: Compose Deployment" />
-      <item itemvalue="Docker.docker-compose.yaml.schema-registry: Compose Deployment" />
-      <item itemvalue="Docker.docker-compose.yaml.zookeeper: Compose Deployment" />
-      <item itemvalue="Gradle.flink-table-api [customAvroCodeGeneration]" />
-    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Docker.docker-compose.yaml.control-center: Compose Deployment" />
-        <item itemvalue="Application.CustomerActivityJob" />
         <item itemvalue="Gradle.flink-table-api [customAvroCodeGeneration]" />
-        <item itemvalue="Docker.docker-compose.yaml.zookeeper: Compose Deployment" />
-        <item itemvalue="Docker.docker-compose.yaml.schema-registry: Compose Deployment" />
+        <item itemvalue="Application.CustomerActivityJob" />
+        <item itemvalue="Application.MessageProducer" />
+        <item itemvalue="Makefile Target.start" />
+        <item itemvalue="Makefile Target.clobber" />
       </list>
     </recent_temporary>
   </component>
@@ -297,10 +269,8 @@
       <workItem from="1713532753353" duration="2502000" />
       <workItem from="1713641341991" duration="351000" />
       <workItem from="1713684797043" duration="4385000" />
-      <workItem from="1713941056071" duration="9692000" />
-      <workItem from="1717405549652" duration="27351000" />
-      <workItem from="1717442315580" duration="1628000" />
-      <workItem from="1717503220742" duration="1152000" />
+      <workItem from="1713941056071" duration="9664000" />
+      <workItem from="1717594805588" duration="12938000" />
     </task>
     <task id="LOCAL-00001" summary="add ignore files">
       <option name="closed" value="true" />
@@ -454,39 +424,7 @@
       <option name="project" value="LOCAL" />
       <updated>1713960772327</updated>
     </task>
-    <task id="LOCAL-00020" summary="calculate average using a tumbling window">
-      <option name="closed" value="true" />
-      <created>1713963902879</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1713963902879</updated>
-    </task>
-    <task id="LOCAL-00021" summary="add docker">
-      <option name="closed" value="true" />
-      <created>1717427275922</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1717427275922</updated>
-    </task>
-    <task id="LOCAL-00022" summary="fix confluent deploy">
-      <option name="closed" value="true" />
-      <created>1717427832755</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1717427832755</updated>
-    </task>
-    <task id="LOCAL-00023" summary="updae build">
-      <option name="closed" value="true" />
-      <created>1717428724097</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1717428724097</updated>
-    </task>
-    <option name="localTasksCounter" value="24" />
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -520,10 +458,7 @@
     <MESSAGE value="stores idea runtime config" />
     <MESSAGE value="adds spring boot plugin to create an autoexecutable jar file" />
     <MESSAGE value="calculate average using a tumbling window" />
-    <MESSAGE value="add docker" />
-    <MESSAGE value="fix confluent deploy" />
-    <MESSAGE value="updae build" />
-    <option name="LAST_COMMIT_MESSAGE" value="updae build" />
+    <option name="LAST_COMMIT_MESSAGE" value="calculate average using a tumbling window" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
@@ -535,6 +470,31 @@
           <url>file://$PROJECT_DIR$/src/main/java/org/flightsafe/job/TableApiJob.java</url>
           <line>63</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.confluent/kafka-avro-serializer/6.2.1/67bea8f0e62d986002a6f269bb4d678cfc505888/kafka-avro-serializer-6.2.1-sources.jar!/io/confluent/kafka/serializers/KafkaAvroSerializer.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.confluent/kafka-schema-serializer/6.2.1/73a1c7bb39389e81593589b5a78c0fbd6dde5810/kafka-schema-serializer-6.2.1-sources.jar!/io/confluent/kafka/serializers/AbstractKafkaSchemaSerDe.java</url>
+          <line>208</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/hellofresh/customeractivity/domain/CustomerActivityStatistics.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/hellofresh/customeractivity/domain/ProcessCustomerActivityStaticsFunction.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/hellofresh/customeractivity/domain/CustomerActivityStatistics.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -1,12 +1,5 @@
 {
-  "user_uuid":"3",
-  "name":"GER",
-  "action":"Login",
-  "status":"success",
-  "reason":"",
-  "ip_address":"127.0.0.1",
-  "access_jti":"",
-  "client_id":"kdkdkd",
-  "occurred_at":"12-12-2024",
-  "extra": {}
+  "userUuid":"3",
+  "countryCode":"GER",
+  "userAgent":"Mozilla"
 }

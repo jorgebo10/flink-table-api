@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class CustomerActivityStatistics {
     private String countryCode;
-    private Map<String, Integer> userAgentCount;
+    private Map<String, Long> userAgentCount;
 
     public String getCountryCode() {
         return countryCode;
@@ -17,23 +17,23 @@ public class CustomerActivityStatistics {
         this.countryCode = countryCode;
     }
 
-    public void setUserAgentCount(Map<String, Integer> userAgentCount) {
+    public void setUserAgentCount(Map<String, Long> userAgentCount) {
         this.userAgentCount = userAgentCount;
     }
 
-    public Map<String, Integer> getUserAgentCount() {
+    public Map<String, Long> getUserAgentCount() {
         return userAgentCount;
     }
 
     public CustomerActivityStatistics merge(CustomerActivityStatistics other) {
         assert this.countryCode.equals(other.countryCode);
 
-        Map<String, Integer> agentsCount = new HashMap<>();
+        Map<String, Long> agentsCount = new HashMap<>();
 
-        for (Map.Entry<String, Integer> entry : this.userAgentCount.entrySet()) {
+        for (Map.Entry<String, Long> entry : this.userAgentCount.entrySet()) {
             String key = entry.getKey();
-            Integer value = entry.getValue();
-            Integer sum = other.getUserAgentCount().merge(key, value, Integer::sum);
+            Long value = entry.getValue();
+            Long sum = other.getUserAgentCount().merge(key, value, Long::sum);
             agentsCount.put(key, sum);
         }
 
@@ -48,7 +48,15 @@ public class CustomerActivityStatistics {
     public static CustomerActivityStatistics fromCustomerActivityEvent(CustomerActivityEvent customerActivityEvent) {
         CustomerActivityStatistics customerActivityStatistics = new CustomerActivityStatistics();
         customerActivityStatistics.setCountryCode(customerActivityEvent.getCountryCode());
-        customerActivityStatistics.setUserAgentCount(Map.of(customerActivityEvent.getUserAgent(), 1));
+        customerActivityStatistics.setUserAgentCount(Map.of(customerActivityEvent.getUserAgent(), 1L));
         return customerActivityStatistics;
+    }
+
+    @Override
+    public String toString() {
+        return "CustomerActivityStatistics{" +
+                "countryCode='" + countryCode + '\'' +
+                ", userAgentCount=" + userAgentCount +
+                '}';
     }
 }

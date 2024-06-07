@@ -1,0 +1,16 @@
+{
+    "doc": "Event used to track browser count",
+    "fields": [
+        {
+            "doc": "country code",
+            "name": "countryCode",
+            "type": "string",
+            "default": ""
+        },
+        {"name": "browserCount", "type": {"type": "map", "values": "long"}}
+
+    ],
+    "name": "BrowserStaticsEvent",
+    "namespace": "com.hellofresh.browserstatics.avro",
+    "type": "record"
+}
