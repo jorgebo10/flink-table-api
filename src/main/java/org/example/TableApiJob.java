@@ -60,7 +60,6 @@ public class TableApiJob {
                 .groupBy($("fiveMinutesWindow"), $("item"))
                 .select($("item"), $("fiveMinutesWindow").end().as("hour"), $("quantity").avg().as("avgBillingAmount"));
 
-        sourceTable.printSchema();
         result.execute().print();
     }
 }
