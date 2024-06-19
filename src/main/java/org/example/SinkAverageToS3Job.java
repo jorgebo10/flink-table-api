@@ -18,19 +18,26 @@
 
 package org.example;
 
+import org.apache.flink.api.common.serialization.SimpleStringEncoder;
 import org.apache.flink.connector.datagen.table.DataGenConnectorOptions;
+import org.apache.flink.core.fs.Path;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.apache.flink.streaming.api.functions.sink.filesystem.StreamingFileSink;
+import org.apache.flink.streaming.api.functions.sink.filesystem.rollingpolicies.DefaultRollingPolicy;
 import org.apache.flink.table.api.DataTypes;
 import org.apache.flink.table.api.Schema;
 import org.apache.flink.table.api.Table;
 import org.apache.flink.table.api.TableDescriptor;
 import org.apache.flink.table.api.Tumble;
 import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
+import org.apache.flink.types.Row;
+
+import java.util.concurrent.TimeUnit;
 
 import static org.apache.flink.table.api.Expressions.$;
 import static org.apache.flink.table.api.Expressions.lit;
 
-public class ExampleJob {
+public class SinkAverageToS3Job {
 
     public static void main(String[] args) throws Exception {
 
@@ -57,7 +64,19 @@ public class ExampleJob {
                 .groupBy($("fiveMinutesWindow"), $("item"))
                 .select($("item"), $("fiveMinutesWindow").end().as("hour"), $("quantity").avg().as("avgBillingAmount"));
 
-        tableEnvironment.toDataStream(result).addSink(new StreamFl )
+        final StreamingFileSink<Row> sink = StreamingFileSink
+                .forRowFormat(new Path("s3://hf-be-platform-average-calculator-job-staging-nonsensitive/sinks/"), new SimpleStringEncoder<Row>("UTF-8"))
+                .withRollingPolicy(
+                        DefaultRollingPolicy.builder()
+                                .withRolloverInterval(TimeUnit.MINUTES.toMillis(15))
+                                .withInactivityInterval(TimeUnit.MINUTES.toMillis(5))
+                                .withMaxPartSize(1024 * 1024 * 1024)
+                                .build())
+                .build();
+
+        tableEnvironment.toDataStream(result).addSink(sink);
+
+        executionEnvironment.execute();
 
     }
 }
