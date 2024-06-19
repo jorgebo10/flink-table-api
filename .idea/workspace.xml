@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0e9736a-a70c-4e6f-bf28-ca1ed565b2d1" name="Changes" comment="fix workspace">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ExampleJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/SinkAverageToS3Job.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +161,7 @@
       <workItem from="1718799943775" duration="506000" />
       <workItem from="1718800556667" duration="35000" />
       <workItem from="1718800602059" duration="1000" />
-      <workItem from="1718804896251" duration="1234000" />
+      <workItem from="1718804896251" duration="1322000" />
     </task>
     <task id="LOCAL-00001" summary="add ignore files">
       <option name="closed" value="true" />

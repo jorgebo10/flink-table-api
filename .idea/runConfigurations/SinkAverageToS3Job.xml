@@ -4,7 +4,7 @@
     <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
     <option name="INCLUDE_PROVIDED_SCOPE" value="true" />
     <option name="MAIN_CLASS_NAME" value="org.example.SinkAverageToS3Job" />
-    <module name="flink-table-api" />
+    <module name="average-sinkt-s3-job" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="org.example.*" />
