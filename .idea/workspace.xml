@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b0e9736a-a70c-4e6f-bf28-ca1ed565b2d1" name="Changes" comment="fix workspace">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/TableApiJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/TableApiJob.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,38 +91,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Application.DataStreamJob.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Submit Job.executor&quot;: &quot;Run&quot;,
-    &quot;Application.TableApiJob.executor&quot;: &quot;Debug&quot;,
-    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.flink-table-api [org.apache.maven.plugins:maven-assembly-plugin:2.4:assembly].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.flink-table-api [org.apache.maven.plugins:maven-assembly-plugin:2.4:single].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.flink-table-api [org.springframework.boot:spring-boot-maven-plugin:1.1.2.RELEASE:run].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;stateful-table-api-s3&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/jorge.bo/hf/flink-table-api/libs&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Application.DataStreamJob.executor": "Run",
+    "Application.Submit Job.executor": "Run",
+    "Application.TableApiJob.executor": "Run",
+    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
+    "Maven.flink-table-api [org.apache.maven.plugins:maven-assembly-plugin:2.4:assembly].executor": "Run",
+    "Maven.flink-table-api [org.apache.maven.plugins:maven-assembly-plugin:2.4:single].executor": "Run",
+    "Maven.flink-table-api [org.springframework.boot:spring-boot-maven-plugin:1.1.2.RELEASE:run].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "stateful-table-api-s3",
+    "go.import.settings.migrated": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/jorge.bo/hf/flink-table-api/libs",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Problems",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "project.propCompiler",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.example" />
@@ -159,6 +160,7 @@
       <workItem from="1718799943775" duration="506000" />
       <workItem from="1718800556667" duration="35000" />
       <workItem from="1718800602059" duration="1000" />
+      <workItem from="1718804896251" duration="688000" />
     </task>
     <task id="LOCAL-00001" summary="add ignore files">
       <option name="closed" value="true" />
@@ -350,17 +352,6 @@
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/TableApiJob.java</url>
-          <line>62</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

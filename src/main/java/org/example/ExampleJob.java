@@ -24,22 +24,21 @@ import org.apache.flink.table.api.DataTypes;
 import org.apache.flink.table.api.Schema;
 import org.apache.flink.table.api.Table;
 import org.apache.flink.table.api.TableDescriptor;
-import org.apache.flink.table.api.TableEnvironment;
 import org.apache.flink.table.api.Tumble;
 import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
 
 import static org.apache.flink.table.api.Expressions.$;
 import static org.apache.flink.table.api.Expressions.lit;
 
-public class TableApiJob {
+public class ExampleJob {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         //This is the entrypoint for any Flink application. Exec env will be automatically selected either local or remote
         StreamExecutionEnvironment executionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment();
 
         //This is the entry point for Table API and SQL and Stream integration
-        TableEnvironment tableEnvironment = StreamTableEnvironment.create(executionEnvironment);
+        StreamTableEnvironment tableEnvironment = StreamTableEnvironment.create(executionEnvironment);
 
         //Creates an in memory table from an in memory data source
         tableEnvironment.createTemporaryTable("SourceTable", TableDescriptor.forConnector("datagen")
@@ -51,15 +50,14 @@ public class TableApiJob {
                 .option(DataGenConnectorOptions.ROWS_PER_SECOND, 1L)
                 .build());
 
-        Table sourceTable = tableEnvironment.from("SourceTable");
-
-        Table result = sourceTable
+        Table result = tableEnvironment.from("SourceTable")
                 .window(Tumble.over(lit(1).minutes())
                         .on($("proc_time"))
                         .as("fiveMinutesWindow"))
                 .groupBy($("fiveMinutesWindow"), $("item"))
                 .select($("item"), $("fiveMinutesWindow").end().as("hour"), $("quantity").avg().as("avgBillingAmount"));
 
-        result.execute().print();
+        tableEnvironment.toDataStream(result).addSink(new StreamFl )
+
     }
 }

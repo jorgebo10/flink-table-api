@@ -1,9 +1,9 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="TableApiJob" type="Application" factoryName="Application" nameIsGenerated="true">
+  <configuration default="false" name="ExampleJob" type="Application" factoryName="Application" nameIsGenerated="true">
     <option name="ALTERNATIVE_JRE_PATH" value="temurin-11" />
     <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
     <option name="INCLUDE_PROVIDED_SCOPE" value="true" />
-    <option name="MAIN_CLASS_NAME" value="org.example.TableApiJob" />
+    <option name="MAIN_CLASS_NAME" value="org.example.ExampleJob" />
     <module name="flink-table-api" />
     <extension name="coverage">
       <pattern>
